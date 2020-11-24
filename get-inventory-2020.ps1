@@ -126,10 +126,10 @@ $outputBIOSDate += '"'
 $outputBIOSDate += "$($BIOSDate)"
 $outputBIOSDate += '"'
 
-$outputMACADDRESS = "- inv.MacAddress "
-$outputMACADDRESS += '"'
-$outputMACADDRESS += "$($MacAddress)"
-$outputMACADDRESS += '"'
+$outputMacAddress = "- inv.MacAddress "
+$outputMacAddress += '"'
+$outputMacAddress += "$($MacAddress)"
+$outputMacAddress += '"'
 
 
 
@@ -148,7 +148,7 @@ Add-Content $env:temp$SenderargInvStatus "- inv.PrimDNSServer $PrimDNSServer"
 Add-Content $env:temp$SenderargInvStatus $outputBIOSDate
 Add-Content $env:temp$SenderargInvStatus $outputOSInstallDate
 Add-Content $env:temp$SenderargInvStatus $outputGeoLocation
-Add-Content $env:temp$SenderargInvStatus $outputMACADDRESS
+Add-Content $env:temp$SenderargInvStatus $outputMacAddress
 
 # ------------------------------------------------------------------------- #
 # This part sends the information in the temp file to Zabbix
