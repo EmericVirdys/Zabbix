@@ -46,7 +46,7 @@ $BIOSageInYears = (New-TimeSpan -Start ($BIOS.ConvertToDateTime($BIOS.releasedat
 $OperatingSystem = Get-WmiObject -Class Win32_OperatingSystem
 $OSInstallDate = ($OperatingSystem.ConvertToDateTime($OperatingSystem.InstallDate).ToShortDateString())
 $BIOSDate = $BIOS.ConvertToDateTime($BIOS.releasedate).ToShortDateString()
-$MacAddress = Get-netAdapter | Where-Object {$_.Name -match "Ethernet"} | Select-Object MacAddress | foreach{ $_.MacAddress }
+$MacAddress = Get-CimInstance win32_networkadapterconfiguration | Select-Object MacAddress | where {$_.MacAddress -ne $null} | select-object -first 1 | foreach { $_.MacAddress }
 
 # ------------------------------------------------------------------------- #
 # This part gets location information. It turns on location tracking. If this is a privacy concern, you can to next comment
